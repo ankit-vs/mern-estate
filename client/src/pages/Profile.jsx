@@ -8,6 +8,7 @@ import { updateUserStart, updateUserSuccess, upadeUserFailure,
   signOutUserStart, 
   signOutUserFailure} from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export default function Profile() {
   const {currentUser, loading, error} = useSelector(state => state.user);
@@ -136,11 +137,16 @@ try {
         <input type='text' placeholder='password' id='password' className='border p-3 rounded-lg'/>
         <button className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'>
         {loading?'LOADING..':'update'}</button>
-
+          <Link className='bg-green-500 text-white p-3 
+          rounded-lg uppercase text-center hover:opacity-95' to={"/create-listing"}>
+            Create Listing
+          </Link>
       </form>
       <div className='flex justify-between mt-5'>
-        <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer'>Delete Account</span>
-        <span onClick={handleSignOut} className='text-red-700 cursor-pointer'>Sign out</span>
+        <span onClick={handleDeleteUser} 
+        className='text-red-700 cursor-pointer'>Delete Account</span>
+        <span onClick={handleSignOut} 
+        className='text-red-700 cursor-pointer'>Sign out</span>
       </div>
       <p className='text-red-500 mt-5'>{error ? error : ""}</p>
       <p className='text-green-500 mt-5'>{updateSucess ?
