@@ -207,7 +207,9 @@ const handleSubmit = async (e)=>{
                     onChange={handleChange} value={formData.regularPrice} />
                     <div className='flex flex-col items-center'>
                     <p>Regular Price</p>
+                    {formData.type === 'rent' && (
                     <span className='text-xs'>($ / month)</span>
+                    )}
                     </div>
                 </div>
                 {formData.offer && (
@@ -217,7 +219,9 @@ const handleSubmit = async (e)=>{
                     onChange={handleChange} value={formData.discountedPrice} />
                     <div className='flex flex-col items-center'>
                     <p>Discounted Price</p>
+                    {formData.type === 'rent' && (
                     <span className='text-xs'>($ / month)</span>
+                    )}
                     </div>
                 </div>
                 )}
